@@ -1,9 +1,6 @@
 <?php
 session_start();
-//define('DBHOST', 'p15006.mysql.ihc.ru');
-//define('DBUSER', 'p15006_pihpi');
-//define('DBPASS', 'pihpiKILL');
-//define('DBNAME', 'p15006_pihpi');
+
 
 define('DBHOST', 'localhost');
 define('DBUSER', 'root');
