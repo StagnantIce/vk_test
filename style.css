@@ -1,0 +1,8 @@
+td {
+    border: 1px #CCC solid;
+}
+
+table {
+    border-collapse: collapse;
+    width:100%;
+}
