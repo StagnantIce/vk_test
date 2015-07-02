@@ -1,4 +1,6 @@
 <?php
+
+if (!defined("PROLOG_INCLUDE")) die("Нет доступа");
 session_start();
 
 define('DBHOST', 'localhost');
@@ -7,6 +9,7 @@ define('DBPASS', 'root');
 define('DBNAME', 'vk');
 
 define('LIST_LIMIT', 20);
+define('SITE_HOST', '/');
 
 $bd = mysql_connect(DBHOST, DBUSER, DBPASS) or die(mysql_error());
 mysql_select_db(DBNAME, $bd) or die(mysql_error());
@@ -32,8 +35,9 @@ function prepareFile(Array $file, $new = false) {
     if (isset($file['name']) && $file['name'] !== "") {
         $tmpfile = $file['tmp_name'];
         $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $url = '/files/'.uniqid().'.'.$ext;
-        $localName = __DIR__ . $url;
+        $fileName = uniqid().'.'.$ext;
+        $url = SITE_HOST . 'files/'.$fileName;
+        $localName = __DIR__ . 'files/'.$fileName;
         $allowedTypes = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
         $detectedType = exif_imagetype($tmpfile);
         if (!in_array($detectedType, $allowedTypes)) {
@@ -125,17 +129,17 @@ try {
         case 'delete':
             deleteItem($_GET['item_id']);
             $_SESSION['message'] = 'Товар удален';
-            Header("Location: /");
+            Header("Location: " . SITE_HOST);
         break;
         case 'add':
             addItem();
             $_SESSION['message'] = 'Товар добавлен';
-            Header("Location: /");
+            Header("Location: ". SITE_HOST);
         break;
         case 'update':
             updateItem();
             $_SESSION['message'] = 'Товар обновлен';
-            Header("Location: /");
+            Header("Location: " . SITE_HOST);
         break;
         default:
             $data = listItem($sort, $order, $page);

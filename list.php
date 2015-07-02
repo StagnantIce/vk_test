@@ -6,8 +6,8 @@
     <td><?= $item['description']; ?></td>
     <td><?= $item['price']; ?></td>
     <td>
-        <a href="/?action=delete&item_id=<?=$item['id'];?>">Удалить</a>&nbsp;
-        <a href="/form.php?item_id=<?=$item['id'];?>">Редактировать</a>
+        <a href="index.php?action=delete&item_id=<?=$item['id'];?>">Удалить</a>&nbsp;
+        <a href="form.php?item_id=<?=$item['id'];?>">Редактировать</a>
     </td>
 </tr>
 <tr>
