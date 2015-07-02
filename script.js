@@ -48,5 +48,5 @@ function sort(node, name) {
 }
 
 function reload() {
-    sendAjax('tableBody', '/list.php?sort='+itemTable.sort+'&order=' + itemTable.order + '&page=' + itemTable.page);
+    sendAjax('tableBody', 'list.php?sort='+itemTable.sort+'&order=' + itemTable.order + '&page=' + itemTable.page);
 }

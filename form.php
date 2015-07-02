@@ -63,6 +63,6 @@ foreach($item as $key => $value) {
     <input type="submit" value="<?= $new ? 'Добавить' : 'Сохранить';?>"/>
 </form>
 
-<a href="/">Назад</a>
+<a href="index.php">Назад</a>
 </body>
 </html>

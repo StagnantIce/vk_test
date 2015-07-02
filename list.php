@@ -1,4 +1,7 @@
-<?php include_once('functions.php');?>
+<?php
+defined("PROLOG_INCLUDE") or define("PROLOG_INCLUDE", true);
+
+include_once('functions.php');?>
 <?php foreach ($data['items'] as $item): ?>
 <tr>
     <td><img  width="100px" height="100px" src="<?= $item['url']; ?>"/></td>
