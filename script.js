@@ -28,7 +28,25 @@ function sendAjax(id, url) {
   xmlhttp.send(null);
 }
 
+var itemTable = {
+    'sort': 'id',
+    'order': 'asc',
+    'page': 1
+}
+
+function navigate(page) {
+    itemTable.page = page;
+    reload();
+}
+
 function sort(node, name) {
-  var sort = node.getAttribute('sort') || 'asc';
-  sendAjax('tableBody', '/list.php?sort='+name+'&order=' + sort); node.setAttribute('sort', sort == 'asc' ? 'desc' : 'asc');
+    var order = node.getAttribute('order') || 'asc';
+    itemTable.order = order;
+    itemTable.sort = name;
+    node.setAttribute('order', order == 'asc' ? 'desc' : 'asc');
+    reload();
+}
+
+function reload() {
+    sendAjax('tableBody', '/list.php?sort='+itemTable.sort+'&order=' + itemTable.order + '&page=' + itemTable.page);
 }

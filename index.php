@@ -13,7 +13,7 @@
 <table>
     <tr>
         <th>Изображение</th>
-        <th><a href="javascript:void(0)" onClick="sort(this, 'name')">Название</a></th>
+        <th><a href="javascript:void(0)" onClick="sort(this, 'name');">Название</a></th>
         <th>Описание</th>
         <th><a href="javascript:void(0)" onClick="sort(this, 'price')">Цена</a></th>
         <th>Действия</th>

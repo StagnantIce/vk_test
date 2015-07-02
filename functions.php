@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 define('DBHOST', 'localhost');
 define('DBUSER', 'root');
 define('DBPASS', 'root');

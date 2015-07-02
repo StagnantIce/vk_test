@@ -23,7 +23,7 @@
                 <? if ($page == $i) : ?>
                     <?=$i;?>&nbsp;
                 <? else: ?>
-                    <a href="/?page=<?=$i;?>"><?=$i;?></a>&nbsp;
+                    <a href="javascript:void(0)" onClick="navigate(<?=$i;?>)"><?=$i;?></a>&nbsp;
                 <? endif; ?>
             <? endif; ?>
         <? endfor; ?>
