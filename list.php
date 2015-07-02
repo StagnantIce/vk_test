@@ -12,7 +12,7 @@
 </tr>
 <? endforeach; ?>
 <tr>
-    <td colspan="5">
+    <td colspan="5"> Страницы
         <?php
             $max = ceil($data['total'] / LIST_LIMIT);
             if ($page - 5 > 1) echo '...';

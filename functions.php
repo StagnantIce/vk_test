@@ -37,7 +37,7 @@ function prepareFile(Array $file, $new = false) {
         $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
         $fileName = uniqid().'.'.$ext;
         $url = SITE_HOST . 'files/'.$fileName;
-        $localName = __DIR__ . 'files/'.$fileName;
+        $localName = __DIR__ . '/files/'.$fileName;
         $allowedTypes = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
         $detectedType = exif_imagetype($tmpfile);
         if (!in_array($detectedType, $allowedTypes)) {
