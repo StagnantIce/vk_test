@@ -19,7 +19,7 @@ include_once('functions.php');?>
         <?php
             $max = ceil($data['total'] / LIST_LIMIT);
             if ($page - 5 > 1) echo '...';
-            for ($i = min($page - 5, 1); $i < min($page - 5, 1) + 10; $i++) {
+            for ($i = max($page - 5, 1); $i < max($page - 5, 1) + 10; $i++) {
 	        if ($i >= 1 && $i <= $max) { ?>
 		        <? if ($page == $i) : ?>
 		            <?=$i;?>&nbsp;
