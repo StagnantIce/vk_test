@@ -10,26 +10,23 @@
         <a href="form.php?item_id=<?=$item['id'];?>">Редактировать</a>
     </td>
 </tr>
+<? endforeach; ?>
 <tr>
     <td colspan="5">
-        <? $max = ceil($data['total'] / LIST_LIMIT);?>
-        <? $count = 0; ?>
-        <? if ($page - 5 > 1) {
-            echo '...';
-        } ?>
-        <?php for ($i = $page - 5; $i < $page + 15, $count < 10; $i++) : ?>
-            <? if ($i >= 1 && $i <= $max): ?>
-                <? $count++;?>
-                <? if ($page == $i) : ?>
-                    <?=$i;?>&nbsp;
-                <? else: ?>
-                    <a href="javascript:void(0)" onClick="navigate(<?=$i;?>)"><?=$i;?></a>&nbsp;
-                <? endif; ?>
-            <? endif; ?>
-        <? endfor; ?>
-        <? if ($max > $page + 5) {
-            echo '...';
-        } ?>
+        <?php
+            $max = ceil($data['total'] / LIST_LIMIT);
+            if ($page - 5 > 1) echo '...';
+            for ($i = min($page - 5, 1); $i < min($page - 5, 1) + 10; $i++) {
+	        if ($i >= 1 && $i <= $max) { ?>
+		        <? if ($page == $i) : ?>
+		            <?=$i;?>&nbsp;
+		        <? else: ?>
+		            <a href="javascript:void(0)" onClick="navigate(<?=$i;?>)"><?=$i;?></a>&nbsp;
+		        <? endif; 
+		}
+            }
+	    if ($max > $page + 5) echo '...';
+	?>
     </td>
 </tr>
-<? endforeach; ?>
+
